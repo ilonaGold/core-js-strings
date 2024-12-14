@@ -405,8 +405,13 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const regex = /^Hello, (.+)!$/;
+  const match = value.match(regex);
+  if (match) {
+    return match[1];
+  }
+  throw new Error('Invalid input format');
 }
 
 /**
